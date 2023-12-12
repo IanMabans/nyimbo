@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "942153321404",
-    "project_id": "nyimbo-2c45a",
-    "storage_bucket": "nyimbo-2c45a.appspot.com"
+    "project_number": "",
+    "project_id": "",
+    "storage_bucket": ""
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:942153321404:android:5f41fcf9c7a8bee0e279b9",
+        "mobilesdk_app_id": "",
         "android_client_info": {
-          "package_name": "com.mabansxg.nyimbociangai"
+          "package_name": ""
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAyPyFYpma45HgRTWX9YDzIs5K5ykIsSZo"
+          "current_key": ""
         }
       ],
       "services": {
