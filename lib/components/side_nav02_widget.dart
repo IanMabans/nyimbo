@@ -1,13 +1,12 @@
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'side_nav02_model.dart';
+
 export 'side_nav02_model.dart';
 
 class SideNav02Widget extends StatefulWidget {
@@ -47,27 +46,28 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
       width: 270.0,
       height: double.infinity,
       decoration: BoxDecoration(
-        color: Color(0xFF101213),
+        color: const Color(0xFF101213),
         borderRadius: BorderRadius.circular(0.0),
         border: Border.all(
-          color: Color(0xFFE5E7EB),
+          color: const Color(0xFFE5E7EB),
           width: 1.0,
         ),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 16.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 16.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        12.0, 0.0, 0.0, 0.0),
                     child: Text(
                       'Nyimbo Cia Kuinira \nNgai',
                       style: FlutterFlowTheme.of(context).headlineSmall,
@@ -76,7 +76,7 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                 ],
               ),
             ),
-            Divider(
+            const Divider(
               height: 12.0,
               thickness: 2.0,
               color: Color(0xFFE5E7EB),
@@ -87,8 +87,8 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        16.0, 12.0, 0.0, 0.0),
                     child: Text(
                       'Welcome',
                       style:
@@ -99,21 +99,21 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        12.0, 0.0, 12.0, 0.0),
                     child: AnimatedContainer(
-                      duration: Duration(milliseconds: 200),
+                      duration: const Duration(milliseconds: 200),
                       curve: Curves.easeInOut,
                       width: double.infinity,
                       height: 44.0,
                       decoration: BoxDecoration(
-                        color: Color(0xFFF1F4F8),
+                        color: const Color(0xFFF1F4F8),
                         borderRadius: BorderRadius.circular(12.0),
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            8.0, 0.0, 8.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -123,7 +123,7 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                             context.pushNamed(
                               'HomePage',
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
+                                kTransitionInfoKey: const TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
                                 ),
@@ -134,14 +134,14 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.home_filled,
                                 color: Color(0xFF15161E),
                                 size: 24.0,
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Home',
@@ -149,7 +149,7 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
-                                          color: Color(0xFF15161E),
+                                          color: const Color(0xFF15161E),
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -163,21 +163,21 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        12.0, 0.0, 12.0, 0.0),
                     child: AnimatedContainer(
-                      duration: Duration(milliseconds: 200),
+                      duration: const Duration(milliseconds: 200),
                       curve: Curves.easeInOut,
                       width: double.infinity,
                       height: 44.0,
                       decoration: BoxDecoration(
-                        color: Color(0xFFF1F4F8),
+                        color: const Color(0xFFF1F4F8),
                         borderRadius: BorderRadius.circular(12.0),
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            8.0, 0.0, 8.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -190,14 +190,14 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.menu_book_sharp,
                                 color: Color(0xFF15161E),
                                 size: 24.0,
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Hymns',
@@ -205,7 +205,7 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
-                                          color: Color(0xFF15161E),
+                                          color: const Color(0xFF15161E),
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -219,21 +219,21 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        12.0, 0.0, 12.0, 0.0),
                     child: AnimatedContainer(
-                      duration: Duration(milliseconds: 200),
+                      duration: const Duration(milliseconds: 200),
                       curve: Curves.easeInOut,
                       width: double.infinity,
                       height: 44.0,
                       decoration: BoxDecoration(
-                        color: Color(0xFFF1F4F8),
+                        color: const Color(0xFFF1F4F8),
                         borderRadius: BorderRadius.circular(12.0),
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            8.0, 0.0, 8.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -246,14 +246,14 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.favorite_border,
                                 color: Color(0xFF15161E),
                                 size: 24.0,
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Favorites',
@@ -261,7 +261,7 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
-                                          color: Color(0xFF15161E),
+                                          color: const Color(0xFF15161E),
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -275,46 +275,46 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        16.0, 0.0, 0.0, 0.0),
                     child: Text(
                       'Settings',
                       style: FlutterFlowTheme.of(context).labelMedium.override(
                             fontFamily: 'Plus Jakarta Sans',
-                            color: Color(0xFF606A85),
+                            color: const Color(0xFF606A85),
                             fontSize: 14.0,
                             fontWeight: FontWeight.w500,
                           ),
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        12.0, 0.0, 12.0, 0.0),
                     child: AnimatedContainer(
-                      duration: Duration(milliseconds: 200),
+                      duration: const Duration(milliseconds: 200),
                       curve: Curves.easeInOut,
                       width: double.infinity,
                       height: 44.0,
                       decoration: BoxDecoration(
-                        color: Color(0x4D9489F5),
+                        color: const Color(0x4D9489F5),
                         borderRadius: BorderRadius.circular(12.0),
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            8.0, 0.0, 8.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.star_purple500_sharp,
                               color: Color(0xFF6F61EF),
                               size: 24.0,
                             ),
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     12.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   'Rate us on Playstore',
@@ -322,7 +322,7 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Plus Jakarta Sans',
-                                        color: Color(0xFF15161E),
+                                        color: const Color(0xFF15161E),
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -335,21 +335,21 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        12.0, 0.0, 12.0, 0.0),
                     child: AnimatedContainer(
-                      duration: Duration(milliseconds: 200),
+                      duration: const Duration(milliseconds: 200),
                       curve: Curves.easeInOut,
                       width: double.infinity,
                       height: 44.0,
                       decoration: BoxDecoration(
-                        color: Color(0xFFF1F4F8),
+                        color: const Color(0xFFF1F4F8),
                         borderRadius: BorderRadius.circular(12.0),
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            8.0, 0.0, 8.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -360,7 +360,7 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                                 scheme: 'mailto',
                                 path: 'mabans.apps@gmail.com',
                                 query: {
-                                  'subject': 'Nyimbo CIa Ngai ',
+                                  'subject': 'Nyimbo Cia Ngai ',
                                 }
                                     .entries
                                     .map((MapEntry<String, String> e) =>
@@ -371,14 +371,14 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.email_outlined,
                                 color: Color(0xFF15161E),
                                 size: 24.0,
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Contact Us',
@@ -386,7 +386,7 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
-                                          color: Color(0xFF15161E),
+                                          color: const Color(0xFF15161E),
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -400,21 +400,21 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        12.0, 0.0, 12.0, 0.0),
                     child: AnimatedContainer(
-                      duration: Duration(milliseconds: 200),
+                      duration: const Duration(milliseconds: 200),
                       curve: Curves.easeInOut,
                       width: double.infinity,
                       height: 44.0,
                       decoration: BoxDecoration(
-                        color: Color(0xFFF1F4F8),
+                        color: const Color(0xFFF1F4F8),
                         borderRadius: BorderRadius.circular(12.0),
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            8.0, 0.0, 8.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -428,14 +428,14 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              FaIcon(
+                              const FaIcon(
                                 FontAwesomeIcons.donate,
                                 color: Color(0xFF15161E),
                                 size: 24.0,
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Donate',
@@ -443,7 +443,7 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
-                                          color: Color(0xFF15161E),
+                                          color: const Color(0xFF15161E),
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -456,26 +456,27 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                       ),
                     ),
                   ),
-                ].divide(SizedBox(height: 12.0)),
+                ].divide(const SizedBox(height: 12.0)),
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, -1.0),
+              alignment: const AlignmentDirectional(0.0, -1.0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 16.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 16.0),
                 child: Container(
                   width: 250.0,
                   height: 50.0,
                   decoration: BoxDecoration(
-                    color: Color(0xFFF1F4F8),
+                    color: const Color(0xFFF1F4F8),
                     borderRadius: BorderRadius.circular(12.0),
                     border: Border.all(
-                      color: Color(0xFFE5E7EB),
+                      color: const Color(0xFFE5E7EB),
                       width: 1.0,
                     ),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(4.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -496,15 +497,15 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                                 color: Theme.of(context).brightness ==
                                         Brightness.light
                                     ? Colors.white
-                                    : Color(0xFFF1F4F8),
+                                    : const Color(0xFFF1F4F8),
                                 borderRadius: BorderRadius.circular(10.0),
                                 border: Border.all(
                                   color: valueOrDefault<Color>(
                                     Theme.of(context).brightness ==
                                             Brightness.light
-                                        ? Color(0xFFE5E7EB)
-                                        : Color(0xFFF1F4F8),
-                                    Color(0xFFE5E7EB),
+                                        ? const Color(0xFFE5E7EB)
+                                        : const Color(0xFFF1F4F8),
+                                    const Color(0xFFE5E7EB),
                                   ),
                                   width: 1.0,
                                 ),
@@ -525,13 +526,14 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                                       Icons.wb_sunny_rounded,
                                       color: Theme.of(context).brightness ==
                                               Brightness.light
-                                          ? Color(0xFF15161E)
-                                          : Color(0xFF606A85),
+                                          ? const Color(0xFF15161E)
+                                          : const Color(0xFF606A85),
                                       size: 16.0,
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          4.0, 0.0, 0.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              4.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'Light Mode',
                                         style: FlutterFlowTheme.of(context)
@@ -541,8 +543,8 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                                               color: Theme.of(context)
                                                           .brightness ==
                                                       Brightness.light
-                                                  ? Color(0xFF15161E)
-                                                  : Color(0xFF606A85),
+                                                  ? const Color(0xFF15161E)
+                                                  : const Color(0xFF606A85),
                                               fontSize: 14.0,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -570,15 +572,15 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                                 color: Theme.of(context).brightness ==
                                         Brightness.dark
                                     ? Colors.white
-                                    : Color(0xFFF1F4F8),
+                                    : const Color(0xFFF1F4F8),
                                 borderRadius: BorderRadius.circular(10.0),
                                 border: Border.all(
                                   color: valueOrDefault<Color>(
                                     Theme.of(context).brightness ==
                                             Brightness.dark
-                                        ? Color(0xFFE5E7EB)
-                                        : Color(0xFFF1F4F8),
-                                    Color(0xFFF1F4F8),
+                                        ? const Color(0xFFE5E7EB)
+                                        : const Color(0xFFF1F4F8),
+                                    const Color(0xFFF1F4F8),
                                   ),
                                   width: 1.0,
                                 ),
@@ -599,13 +601,14 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                                       Icons.nightlight_round,
                                       color: Theme.of(context).brightness ==
                                               Brightness.dark
-                                          ? Color(0xFF15161E)
-                                          : Color(0xFF606A85),
+                                          ? const Color(0xFF15161E)
+                                          : const Color(0xFF606A85),
                                       size: 16.0,
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          4.0, 0.0, 0.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              4.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'Dark Mode',
                                         style: FlutterFlowTheme.of(context)
@@ -615,8 +618,8 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                                               color: Theme.of(context)
                                                           .brightness ==
                                                       Brightness.dark
-                                                  ? Color(0xFF15161E)
-                                                  : Color(0xFF606A85),
+                                                  ? const Color(0xFF101213)
+                                                  : const Color(0xFF101213),
                                               fontSize: 14.0,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -634,13 +637,14 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                 ),
               ),
             ),
-            Divider(
+            const Divider(
               height: 12.0,
               thickness: 2.0,
               color: Color(0xFFE5E7EB),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -653,7 +657,7 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                     onTap: () async {
                       Navigator.pop(context);
                     },
-                    child: Icon(
+                    child: const Icon(
                       Icons.menu_open_rounded,
                       color: Color(0xFF606A85),
                       size: 24.0,

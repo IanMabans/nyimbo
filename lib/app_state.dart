@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import '/backend/backend.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 import 'flutter_flow/flutter_flow_util.dart';
-import 'dart:convert';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -71,3 +69,11 @@ Future _safeInitAsync(Function() initializeField) async {
     await initializeField();
   } catch (_) {}
 }
+
+List myPages = [
+  // [pageName, iconPath, routeName]
+  ["Hymns", "assets/images/music-book.png", "/Hymns"],
+  ["Lord's Prayer", "assets/images/prayer.png", "/Prayer"],
+  ["Apostles Creed", "assets/images/dove.png", "/ApostlesCreed"],
+  ["Favorites", "assets/images/heart.png", "/Favorites"],
+];
