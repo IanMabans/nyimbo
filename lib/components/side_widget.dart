@@ -151,8 +151,7 @@ class _SideWidgetState extends State<SideWidget> with TickerProviderStateMixin {
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  2.0, 2.0, 2.0, 2.0),
+                              padding: EdgeInsets.all(2.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: CachedNetworkImage(
@@ -483,13 +482,12 @@ class _SideWidgetState extends State<SideWidget> with TickerProviderStateMixin {
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                2.0, 2.0, 2.0, 2.0),
+                            padding: EdgeInsets.all(2.0),
                             child: Stack(
                               alignment: AlignmentDirectional(0.0, 0.0),
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(-0.90, 0.00),
+                                  alignment: AlignmentDirectional(-0.9, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         6.0, 0.0, 0.0, 0.0),
@@ -501,7 +499,7 @@ class _SideWidgetState extends State<SideWidget> with TickerProviderStateMixin {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(1.00, 0.00),
+                                  alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 6.0, 0.0),
@@ -513,7 +511,7 @@ class _SideWidgetState extends State<SideWidget> with TickerProviderStateMixin {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(1.00, 0.00),
+                                  alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Container(
                                     width: 36.0,
                                     height: 36.0,

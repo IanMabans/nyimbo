@@ -47,7 +47,7 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
       width: 270.0,
       height: double.infinity,
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).primaryBackground,
+        color: Color(0xFF101213),
         borderRadius: BorderRadius.circular(0.0),
         border: Border.all(
           color: Color(0xFFE5E7EB),
@@ -460,7 +460,7 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.00, -1.00),
+              alignment: AlignmentDirectional(0.0, -1.0),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 16.0),
                 child: Container(
@@ -475,7 +475,7 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                     ),
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+                    padding: EdgeInsets.all(4.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,

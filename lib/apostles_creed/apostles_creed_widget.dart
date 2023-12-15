@@ -120,13 +120,28 @@ class _ApostlesCreedWidgetState extends State<ApostlesCreedWidget> {
                               Navigator.pop(context);
                             },
                             child: Icon(
-                              Icons.exit_to_app,
+                              Icons.share_sharp,
                               color: FlutterFlowTheme.of(context).primaryText,
                               size: 22.0,
                             ),
                           ),
                         ),
                       ],
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(0.03, -0.72),
+                    child: Card(
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      elevation: 3.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      child: Text(
+                        'Hello World',
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                      ),
                     ),
                   ),
                 ],
