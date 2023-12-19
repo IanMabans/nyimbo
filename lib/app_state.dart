@@ -70,7 +70,7 @@ Future _safeInitAsync(Function() initializeField) async {
   } catch (_) {}
 }
 
-var adUnit = "ca-app-pub-1097230754498747/3141979130"; //testing ad
+var adUnit = ""; //testing ad
 
 List myPages = [
   [
@@ -82,7 +82,7 @@ List myPages = [
   ["Apostles Creed", "assets/images/dove.png", "/ApostlesCreed"],
   ["Favorites", "assets/images/favourite.png", "/Favorites"],
 ];
-var devices = ["410B7F1564C40DB1C6C45A628F8907C8"];
+var devices = [""];
 const playStoreLink =
     'https://play.google.com/store/apps/details?id=com.mabans.nyimbo_cia_kuinira_ngai';
 String appText =
