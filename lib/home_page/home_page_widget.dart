@@ -1,8 +1,10 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:nyimbocia_ngai/home_page/pagesBox.dart';
 import 'package:provider/provider.dart';
 
@@ -22,13 +24,39 @@ class HomePageWidget extends StatefulWidget {
 
 class _HomePageWidgetState extends State<HomePageWidget> {
   late HomePageModel _model;
+  late BannerAd bannerAd;
+
+  bool isAdLoaded = false;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
+    initBannerAd();
     _model = createModel(context, () => HomePageModel());
+  }
+
+  initBannerAd() {
+    bannerAd = BannerAd(
+        size: AdSize.banner,
+        adUnitId: adUnit,
+        listener: BannerAdListener(
+          onAdLoaded: (ad) {
+            setState(() {
+              isAdLoaded = true;
+            });
+          },
+          onAdFailedToLoad: (ad, error) {
+            ad.dispose();
+            if (kDebugMode) {
+              print(error);
+            }
+          },
+        ),
+        request: const AdRequest());
+
+    bannerAd.load();
   }
 
   @override
@@ -128,7 +156,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               child: Icon(
                                 Icons.menu,
                                 size: 35,
-                                color: Colors.grey[800],
+                                color: Theme.of(context).brightness ==
+                                        Brightness.light
+                                    ? Colors
+                                        .grey.shade800 // Light mode icon color
+                                    : Colors
+                                        .grey.shade200, // Dark mode icon color
                               ),
                             )),
                     InkWell(
@@ -138,7 +171,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       child: Icon(
                         Icons.exit_to_app,
                         size: 35,
-                        color: Colors.grey[800],
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? Colors.grey.shade800 // Light mode icon color
+                            : Colors.grey.shade200, // Dark mode icon color
                       ),
                     )
                   ],
@@ -154,12 +189,21 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   children: [
                     Text(
                       'Nyimbo Cia Kuinira Ngai',
-                      style: GoogleFonts.bebasNeue(fontSize: 42),
+                      style: GoogleFonts.bebasNeue(
+                        fontSize: 42,
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? Colors.black // Light mode text color
+                            : Colors.white, // Dark mode text color
+                      ),
                     ),
                     Text(
                       getGreeting(),
-                      style:
-                          TextStyle(fontSize: 20, color: Colors.grey.shade800),
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? Colors.grey.shade800 // Light mode text color
+                            : Colors.grey.shade200, // Dark mode text color
+                      ),
                     ),
                   ],
                 ),
@@ -188,7 +232,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       onTap: () {
                         final routeName = myPages[index][2];
                         if (routeName != null) {
-                          Navigator.of(context).pushNamed(routeName);
+                          GoRouter.of(context).go(routeName);
                         }
                       },
                       child: PagesBox(
@@ -203,6 +247,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             ],
           ),
         ),
+        bottomNavigationBar: isAdLoaded
+            ? SizedBox(
+                height: bannerAd.size.height.toDouble(),
+                width: bannerAd.size.width.toDouble(),
+                child: AdWidget(ad: bannerAd),
+              )
+            : const SizedBox(),
       ),
     );
   }

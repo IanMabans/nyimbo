@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_web_plugins/url_strategy.dart';
+import 'package:flutter_web_plugins/url_strategy.dart' show usePathUrlStrategy;
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 
 import 'backend/firebase/firebase_config.dart';
@@ -10,6 +11,11 @@ import 'flutter_flow/internationalization.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await MobileAds.instance.initialize();
+  RequestConfiguration requestConfiguration = RequestConfiguration(
+    testDeviceIds: devices,
+  );
+  MobileAds.instance.updateRequestConfiguration(requestConfiguration);
   usePathUrlStrategy();
   await initFirebase();
 
@@ -25,12 +31,12 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
-  // This widget is the root of your application.
   @override
   State<MyApp> createState() => _MyAppState();
 
-  static _MyAppState of(BuildContext context) =>
-      context.findAncestorStateOfType<_MyAppState>()!;
+  static _MyAppState of(BuildContext context) {
+    return context.findAncestorStateOfType<_MyAppState>()!;
+  }
 }
 
 class _MyAppState extends State<MyApp> {
@@ -40,8 +46,6 @@ class _MyAppState extends State<MyApp> {
   late AppStateNotifier _appStateNotifier;
   late GoRouter _router;
 
-  bool displaySplashImage = true;
-
   @override
   void initState() {
     super.initState();
@@ -49,18 +53,26 @@ class _MyAppState extends State<MyApp> {
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
 
-    Future.delayed(const Duration(milliseconds: 1000),
-        () => setState(() => _appStateNotifier.stopShowingSplashImage()));
+    // _appStateNotifier.startShowingSplashImage();
+
+    Future.delayed(
+      const Duration(milliseconds: 1500), // Adjust the duration as needed
+      () {
+        setState(() => _appStateNotifier.stopShowingSplashImage());
+      },
+    );
   }
 
   void setLocale(String language) {
     setState(() => _locale = createLocale(language));
   }
 
-  void setThemeMode(ThemeMode mode) => setState(() {
-        _themeMode = mode;
-        FlutterFlowTheme.saveThemeMode(mode);
-      });
+  void setThemeMode(ThemeMode mode) {
+    setState(() {
+      _themeMode = mode;
+      FlutterFlowTheme.saveThemeMode(mode);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,6 +97,17 @@ class _MyAppState extends State<MyApp> {
       ),
       themeMode: _themeMode,
       routerConfig: _router,
+      builder: (context, router) {
+        return _appStateNotifier.showSplashImage
+            ? Container(
+                color: const Color(0xFF39EF55),
+                child: Image.asset(
+                  'assets/images/playstore.png',
+                  fit: BoxFit.fitWidth,
+                ),
+              )
+            : router!;
+      },
     );
   }
 }

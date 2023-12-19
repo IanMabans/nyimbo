@@ -1,12 +1,15 @@
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
+
+import '../hymns/datahelperclass.dart';
+import '../hymns/hymnClass.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'favorites_model.dart';
+
 export 'favorites_model.dart';
 
 class FavoritesWidget extends StatefulWidget {
@@ -23,6 +26,9 @@ class FavoritesWidget extends StatefulWidget {
 
 class _FavoritesWidgetState extends State<FavoritesWidget> {
   late FavoritesModel _model;
+  late BannerAd bannerAd;
+
+  bool isAdloaded = false;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -30,6 +36,51 @@ class _FavoritesWidgetState extends State<FavoritesWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FavoritesModel());
+    loadFavoriteHymns();
+    initBannerAd();
+  }
+
+  initBannerAd() {
+    bannerAd = BannerAd(
+        size: AdSize.banner,
+        adUnitId: adUnit,
+        listener: BannerAdListener(
+          onAdLoaded: (ad) {
+            setState(() {
+              isAdloaded = true;
+            });
+          },
+          onAdFailedToLoad: (ad, error) {
+            ad.dispose();
+            if (kDebugMode) {
+              print(error);
+            }
+          },
+        ),
+        request: const AdRequest());
+
+    bannerAd.load();
+  }
+
+  final HymnDatabaseHelper hymnDatabaseHelper = HymnDatabaseHelper();
+  List<Hymn> favoriteHymns = [];
+
+  Future<void> loadFavoriteHymns() async {
+    final favoriteHymnsList = await hymnDatabaseHelper.getAllHymns(true);
+    setState(() {
+      favoriteHymns = favoriteHymnsList;
+    });
+  }
+
+  Future<void> removeFavoriteHymn(Hymn hymn) async {
+    // Toggle the favorite status of the hymn
+    hymn.toggleFavorite();
+
+    // You need to implement a method to update the database with the new favorite status.
+    // This method should update the 'isFavorite' field in the database.
+
+    // Reload the list of favorite hymns
+    loadFavoriteHymns();
   }
 
   @override
@@ -57,84 +108,82 @@ class _FavoritesWidgetState extends State<FavoritesWidget> {
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Expanded(
-              child: Stack(
-                children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          width: 40.0,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(13.0),
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).borderIcons,
-                              width: 2.0,
-                            ),
-                          ),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.safePop();
-                            },
-                            child: Icon(
-                              Icons.chevron_left_outlined,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              size: 20.0,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: 40.0,
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(13.0),
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).borderIcons,
-                              width: 2.0,
-                            ),
-                          ),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              Navigator.pop(context);
-                            },
-                            child: Icon(
-                              Icons.exit_to_app,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              size: 22.0,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+          key: scaffoldKey,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          appBar: AppBar(
+            title: const Text("Favorite Hymns ❤️"),
+            backgroundColor: Theme.of(context).brightness == Brightness.light
+                ? Colors.greenAccent // Light mode color
+                : Colors.grey[800]!, // Dark mode color
+          ),
+          body: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              if (isAdloaded)
+                SizedBox(
+                  height: bannerAd.size.height.toDouble(),
+                  width: bannerAd.size.width.toDouble(),
+                  child: AdWidget(ad: bannerAd),
+                ),
+              const SizedBox(), // Empty SizedBox to take no space
+              if (favoriteHymns.isEmpty)
+                const Center(
+                  child: Text(
+                    'You have no favorite hymns yet. Go to Hymns and add them',
                   ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
+                ),
+              if (favoriteHymns.isNotEmpty)
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: favoriteHymns.length,
+                    itemBuilder: (context, index) {
+                      final hymn = favoriteHymns[index];
+
+                      return Dismissible(
+                        key: Key(hymn.id.toString()),
+                        onDismissed: (direction) {
+                          // Remove the hymn from favorites here
+                          removeFavoriteHymn(hymn);
+                        },
+                        background: Container(
+                          color: Colors.red,
+                          alignment: Alignment.centerRight,
+                          padding: const EdgeInsets.only(right: 20.0),
+                          child: const Icon(
+                            Icons.delete,
+                            color: Colors.white,
+                          ),
+                        ),
+                        child: ListTile(
+                          title: Text(
+                            hymn.name,
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Theme.of(context).brightness ==
+                                      Brightness.light
+                                  ? Colors.black87
+                                  : Colors.white,
+                            ),
+                          ),
+                          subtitle: Text(
+                            'Hymn ${hymn.number.toString()}',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Theme.of(context).brightness ==
+                                      Brightness.light
+                                  ? Colors.deepOrange
+                                  : Colors.orangeAccent,
+                            ),
+                          ),
+                          onTap: () => GoRouter.of(context)
+                              .go('/hymnPage', extra: {'hymn': hymn}),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+            ],
+          )),
     );
   }
 }

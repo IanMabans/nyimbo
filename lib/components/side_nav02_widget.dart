@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -46,7 +47,9 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
       width: 270.0,
       height: double.infinity,
       decoration: BoxDecoration(
-        color: const Color(0xFF101213),
+        color: Theme.of(context).brightness == Brightness.light
+            ? Colors.white // Light mode text color
+            : Colors.black, // Dark mode text color
         borderRadius: BorderRadius.circular(0.0),
         border: Border.all(
           color: const Color(0xFFE5E7EB),
@@ -69,8 +72,13 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                     padding: const EdgeInsetsDirectional.fromSTEB(
                         12.0, 0.0, 0.0, 0.0),
                     child: Text(
-                      'Nyimbo Cia Kuinira \nNgai',
-                      style: FlutterFlowTheme.of(context).headlineSmall,
+                      'Nyimbo Cia Kuinira Ngai',
+                      style: GoogleFonts.bebasNeue(
+                        fontSize: 28,
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? Colors.black // Light mode text color
+                            : Colors.white, // Dark mode text color
+                      ),
                     ),
                   ),
                 ],
@@ -281,7 +289,10 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                       'Settings',
                       style: FlutterFlowTheme.of(context).labelMedium.override(
                             fontFamily: 'Plus Jakarta Sans',
-                            color: const Color(0xFF606A85),
+                            color:
+                                Theme.of(context).brightness == Brightness.light
+                                    ? Colors.black // Light mode text color
+                                    : Colors.white, // Dark mode text color
                             fontSize: 14.0,
                             fontWeight: FontWeight.w500,
                           ),
@@ -296,7 +307,9 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                       width: double.infinity,
                       height: 44.0,
                       decoration: BoxDecoration(
-                        color: const Color(0x4D9489F5),
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? const Color(0x4D9489F5) // Light mode color
+                            : const Color(0xFF6F61EF), // Dark mode color
                         borderRadius: BorderRadius.circular(12.0),
                         shape: BoxShape.rectangle,
                       ),
@@ -309,20 +322,29 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                           children: [
                             const Icon(
                               Icons.star_purple500_sharp,
-                              color: Color(0xFF6F61EF),
+                              color: Colors.white, // Icon color
                               size: 24.0,
                             ),
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
+                                  12.0,
+                                  0.0,
+                                  0.0,
+                                  0.0,
+                                ),
                                 child: Text(
                                   'Rate us on Playstore',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Plus Jakarta Sans',
-                                        color: const Color(0xFF15161E),
+                                        color: Theme.of(context).brightness ==
+                                                Brightness.light
+                                            ? const Color(
+                                                0xFF15161E) // Light mode text color
+                                            : Colors
+                                                .white, // Dark mode text color
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -657,9 +679,11 @@ class _SideNav02WidgetState extends State<SideNav02Widget> {
                     onTap: () async {
                       Navigator.pop(context);
                     },
-                    child: const Icon(
+                    child: Icon(
                       Icons.menu_open_rounded,
-                      color: Color(0xFF606A85),
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? const Color(0xFF606A85) // Light mode color
+                          : Colors.white, // Dark mode color
                       size: 24.0,
                     ),
                   ),

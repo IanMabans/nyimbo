@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../hymns/hymnPage.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 
@@ -33,14 +34,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       errorBuilder: (context, state) => appStateNotifier.showSplashImage
           ? Builder(
               builder: (context) => Container(
-                color: Color(0xFF39EF55),
+                color: const Color(0xFF39EF55),
                 child: Image.asset(
                   'assets/images/playstore.png',
                   fit: BoxFit.fitWidth,
                 ),
               ),
             )
-          : HomePageWidget(),
+          : const HomePageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
@@ -72,13 +73,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Hymns',
               path: 'hymns',
-              builder: (context, params) => HymnsWidget(),
+              builder: (context, params) => const HymnsWidget(),
             ),
             FFRoute(
               name: 'LordsPrayer',
               path: 'lordsPrayer',
               builder: (context, params) => LordsPrayerWidget(
                 item: params.getParam('item', ParamType.JSON),
+              ),
+            ),
+            FFRoute(
+              name: 'HymnPage',
+              path: 'hymnPage',
+              builder: (context, params) => HymnPage(
+                hymn: params.getParam('hymn', ParamType.JSON),
               ),
             ),
             FFRoute(
@@ -91,7 +99,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Navigation',
               path: 'navigation',
-              builder: (context, params) => NavigationWidget(),
+              builder: (context, params) => const NavigationWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -254,7 +262,8 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() =>
+      const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {
